@@ -1,0 +1,49 @@
+{
+  "mvp_react": {
+    "configuration": {
+      "config": {
+        "configName": "config",
+        "topScope": [
+          "const path = require('path');",
+          "const webpack = require('webpack');",
+          "\n"
+        ],
+        "webpackOptions": {
+          "mode": "'development'",
+          "entry": {
+            "pageOne": "'./src/pageOne.js'",
+            "pageTwo": "'./src/pageTwo.js'"
+          },
+          "plugins": [
+            "new webpack.ProgressPlugin()"
+          ],
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.(js|jsx)$/",
+                "include": [
+                  "path.resolve(__dirname, 'src')"
+                ],
+                "loader": "'babel-loader'"
+              },
+              {
+                "test": "/.css$/",
+                "use": [
+                  {
+                    "loader": "\"style-loader\""
+                  },
+                  {
+                    "loader": "\"css-loader\"",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
